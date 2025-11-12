@@ -356,12 +356,12 @@
         </div>
 
         <div class="nav">
-            <button class="nav-btn active" onclick="showSection('inicio')">🏠 Inicio</button>
-            <button class="nav-btn" onclick="showSection('actividades')">📚 Actividades</button>
-            <button class="nav-btn" onclick="showSection('prueba')">📝 Prueba</button>
-            <button class="nav-btn" onclick="showSection('proyecto')">🎯 Proyecto</button>
-            <button class="nav-btn" onclick="showSection('Cineforo')">🧠 Cineforo</button>
-            <button class="nav-btn" onclick="showSection('autorreflexion')">🤔 Reflexión</button>
+            <button class="nav-btn active" onclick="showSection('inicio', this)">🏠 Inicio</button>
+            <button class="nav-btn" onclick="showSection('actividades', this)">📚 Actividades</button>
+            <button class="nav-btn" onclick="showSection('prueba', this)">📝 Prueba</button>
+            <button class="nav-btn" onclick="showSection('proyecto', this)">🎯 Proyecto</button>
+            <button class="nav-btn" onclick="showSection('Cineforo', this)">🧠 Cineforo</button>
+            <button class="nav-btn" onclick="showSection('autorreflexion', this)">🤔 Reflexión</button>
         </div>
 
         <!-- SECCIÓN INICIO -->
@@ -892,7 +892,7 @@
                 </a>
             </div>
 
-            <div id="prueba" class="section">
+            <div id="prueba2" class="section">
                 <h2>📝 Prueba de Conocimiento 2</h2>
 
                 <div class="reflection-item">
@@ -1226,7 +1226,7 @@
         </div>
 
         <script>
-            function showSection(sectionId) {
+            function showSection(sectionId, buttonElement) {
                 // Ocultar todas las secciones
                 document.querySelectorAll('.section').forEach(section => {
                     section.classList.remove('active');
@@ -1238,10 +1238,15 @@
                 });
 
                 // Mostrar la sección seleccionada
-                document.getElementById(sectionId).classList.add('active');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.classList.add('active');
+                }
 
                 // Activar el botón correspondiente
-                event.target.classList.add('active');
+                if (buttonElement) {
+                    buttonElement.classList.add('active');
+                }
             }
 
             // Animación suave al cargar la página
